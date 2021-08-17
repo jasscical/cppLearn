@@ -9,21 +9,18 @@ string& leftStr(string& s){
 int main(){
 	int T;
 	cin >> T;
-	for(int i = 0; i < T; i++){ // T×éÊı¾İ 
+	for(int i = 0; i < T; i++){ // Tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		int N, M;
 		string s;
 		cin >> s; // R > S > C
 		int start = 0;
 		int end = 1;
-		for(int j = 0; j < M; j++){ // È«×éÈË M ´Î²ÂÈ­ 
-			// 1.·µ»Ø²ÂÈ­ºóµÄ×Ó×Ö·û´® 
+		for(int j = 0; j < M; j++){ // È«ï¿½ï¿½ï¿½ï¿½ M ï¿½Î²ï¿½È­ 
+			// 1.ï¿½ï¿½ï¿½Ø²ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ 
 			if(s.length() == 1){
 				cout << "1" << endl;
 				break;
 			}
-			
-						
-			
 			s = leftStr(s); 
 		} 
 		cout << s.length();		

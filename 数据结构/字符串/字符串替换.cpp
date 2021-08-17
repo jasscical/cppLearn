@@ -5,8 +5,8 @@ using namespace std;
 string& replace_all(string& src, const string& oldStr, const string& newStr){
 	/*
 	for(auto pos = 0; pos != string::npos; pos += newStr.length()){
-		// src.find(oldStr, pos) ÔÚ×Ö·û´®srcµÄposÎ»ÖÃ¿ªÊ¼ÕÒ×Ö·û´®oldStr
-		//  src.replace(pos, oldStr.length(), newStr) ÔÚ×Ö·û´®srcµÄposÎ»ÖÃ¿ªÊ¼ºóµÄ oldStr.length()¸öÎ»ÖÃ Ìæ»»ÎªnewStr 
+		// src.find(oldStr, pos) ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½srcï¿½ï¿½posÎ»ï¿½Ã¿ï¿½Ê¼ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½oldStr
+		//  src.replace(pos, oldStr.length(), newStr) ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½srcï¿½ï¿½posÎ»ï¿½Ã¿ï¿½Ê¼ï¿½ï¿½ï¿½ oldStr.length()ï¿½ï¿½Î»ï¿½ï¿½ ï¿½æ»»ÎªnewStr 
 		if((pos = src.find(oldStr, pos)) != string::npos){
 			src.replace(pos, oldStr.length(), newStr);
 		}else break;
@@ -16,7 +16,7 @@ string& replace_all(string& src, const string& oldStr, const string& newStr){
 	string::size_type pos = 0;
 	while((pos = src.find(oldStr, pos)) != string::npos){
 		src.replace(pos, oldStr.size(), newStr);
-		pos += oldStr.size();
+		pos += newStr.size();
 	}
 	return src;
 }
