@@ -4,13 +4,13 @@ using namespace std;
 
 Class String{
 public:
-	// È±Ê¡¹¹Ôìº¯Êı 
+	// ç¼ºçœæ„é€ å‡½æ•° 
 	String(const char *str = nullptr);
-	// ¿½±´¹¹Ôìº¯Êı
+	// æ‹·è´æ„é€ å‡½æ•°
 	String(const String &str);
-	// ×Ö·û´®¸³Öµº¯Êı
+	// å­—ç¬¦ä¸²èµ‹å€¼å‡½æ•°
 	String operator=(const String &str); 
-	// È±Ê¡Îö¹¹º¯Êı 
+	// ç¼ºçœææ„å‡½æ•° 
 	~String();
 private:
 	char *m_data;
@@ -18,25 +18,25 @@ private:
 }
 
 String::String(const char *str){
-	// ¶ÔÓÚ´«ÈëµÄ¶ÔÏó½øĞĞ·Ç¿Õ¼ì²é 
+	// å¯¹äºä¼ å…¥çš„å¯¹è±¡è¿›è¡Œéç©ºæ£€æŸ¥ 
 	if(str == nullptr){ 
-		m_data = new char[1]; // ´æ·Å'\0'
+		m_data = new char[1]; // å­˜æ”¾'\0'
 		m_data[0] = '\0';
 		m_size = 0;                                                                                              
 	}else{
-		// ²»Îª¿ÕµÄ»°£¬ĞèÒª¹¹ÔìÒ»¿éºÏÊÊµÄ´óĞ¡¿Õ¼ä ´æ·ÅstrÊı¾İ 
+		// ä¸ä¸ºç©ºçš„è¯ï¼Œéœ€è¦æ„é€ ä¸€å—åˆé€‚çš„å¤§å°ç©ºé—´ å­˜æ”¾stræ•°æ® 
 		m_size = strlen(str);
-		m_data = new char[m_size + 1]£» 
+		m_data = new char[m_size + 1]ï¼› 
 		strcpy(m_data, str);
 	}
 }
 String::String(const String &str){
 	m_size = str.m_size;
-	m_data = new char[m_size + 1]; // ¶Ô '\0' ËùÕ¼¿Õ¼ä¼Ó½øÈ¥ 
+	m_data = new char[m_size + 1]; // å¯¹ '\0' æ‰€å ç©ºé—´åŠ è¿›å» 
 	strcpy(m_data, str.m_data);
 } 
-String& String::operator=(const String &str){ //·µ»ØÀàĞÍ 
-	// ¼ì²é×Ô¸³Öµ
+String& String::operator=(const String &str){ //è¿”å›ç±»å‹ 
+	// æ£€æŸ¥è‡ªèµ‹å€¼
 	if(this == &str){
 		return *this;
 	} 
@@ -45,7 +45,7 @@ String& String::operator=(const String &str){ //·µ»ØÀàĞÍ
 	m_data = new char[m_size +  1];
 	strcpy(m_data, str.m_data); 
 	
-	return *this; // ·µ»Ø±¾¶ÔÏóµÄÒıÓÃ 
+	return *this; // è¿”å›æœ¬å¯¹è±¡çš„å¼•ç”¨ 
 } 
 String::~String(){
 	delete[] m_data;

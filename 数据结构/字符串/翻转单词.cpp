@@ -8,7 +8,7 @@ public:
     string reverseWords(string s) {
         if(s == "") return "";
         string words;
-        // È¥³ıÊ×Î²¿Õ¸ñ
+        // å»é™¤é¦–å°¾ç©ºæ ¼
         int start = 0, end = s.size()-1;
         while(s[start] == ' '){
             start++;
@@ -21,20 +21,20 @@ public:
         
         cout << s << endl;
         
-        // ´ÓºóÍùÇ°Ë«Ö¸Õë±éÀú£¬½ØÈ¡Ò»¸öµ¥´Ê¾Í´æµ½wordsÖĞ
+        // ä»åå¾€å‰åŒæŒ‡é’ˆéå†ï¼Œæˆªå–ä¸€ä¸ªå•è¯å°±å­˜åˆ°wordsä¸­
         int i = s.size()-1, j = i;
         cout << "original j = " << j << ", i = " << i << endl;
         while(i>=0){
-            // ÍùÇ°×ßÕÒµ½µ¥´ÊµÄµÚÒ»¸ö×ÖÄ¸
+            // å¾€å‰èµ°æ‰¾åˆ°å•è¯çš„ç¬¬ä¸€ä¸ªå­—æ¯
             while(i >= 0 && s[i] != ' '){
                 i--;
             }
-            // ÕÒµ½ºó£¬½ØÈ¡s[i]~s[j]´æµ½words
+            // æ‰¾åˆ°åï¼Œæˆªå–s[i]~s[j]å­˜åˆ°words
             cout << "s.substr(i+1, j-i) = " << s.substr(i+1, j-i) << endl;
             words += s.substr(i+1, j-i);
             words += " ";
             cout << "words  = " << words << endl;
-            // ¸üĞÂjµÄÎ»ÖÃ
+            // æ›´æ–°jçš„ä½ç½®
             while(s[i] == ' '){
                 i--;
             }
