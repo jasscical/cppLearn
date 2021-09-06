@@ -10,6 +10,87 @@ using namespace std;
 8
 */
 
+
+
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    vector<int> b(n);
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    for(int i = 0; i < n; i++){
+        cin >> b[i];
+    }
+    // 贪心的思想，先装最大的
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+
+    vector<int> c(a.size());
+    int index = n - 1;
+    for (int i = n - 1; i >= 0; i--) {
+        while (index >= 0 && b[index] >= a[i]) {
+            index--;
+        }     
+        c[i] = n - index - 1 ;
+    }
+
+    for(int cc:c) cout << cc << " ";
+    cout << endl;
+    // c  4 4 3 2    有几个书架能装下该书
+    // a  1 2 3 4    书 
+    //         /|
+    // b  2 3 4 4    书架
+    
+    long res = c[n - 1];
+    int tmp = 1; // 统计已用了几个书架
+    long MOD_M = 1000000007;
+    for(int i = n - 2; i > 0 ; i--) {
+        res = res * (c[i] - tmp) % (MOD_M);
+        tmp++;
+    }
+    cout << res << endl;
+}
+
+/*
+public class Main1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+        int[] b = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            b[i] = sc.nextInt();
+        }
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int[] c = new int[n];
+        int index = n - 1;
+        for (int i = n - 1; i >= 0; i--) {
+            while (index >= 0 && b[index] >= a[i])
+                index--;
+            c[i] = n - index -1 ;
+        }
+        long res=c[n-1];
+        int tmp =1;
+        long MOD_M = 1000000007 ;
+        for (int i = n-2; i >0 ; i--) {
+            res = res * (c[i] - tmp) % (MOD_M);
+            tmp++;
+        }
+        System.out.println(res);
+//        for (int i = 0; i < n; i++) {
+//            System.out.println(c[i]);
+//        }
+    }
+}
+
+
 vector<int> path;
 long res = 0;
 void backtracking(vector<int>& nums, vector<int>& b, vector<bool>& used){
@@ -36,22 +117,4 @@ void backtracking(vector<int>& nums, vector<int>& b, vector<bool>& used){
     }
 }
 
-
-int main(){
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    vector<int> b(n);
-    for(int i = 0; i < n; i++){
-        cin >> a[i];
-    }
-    for(int i = 0; i < n; i++){
-        cin >> b[i];
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    vector<bool> used(a.size(), false);
-    backtracking(a, b, used);
-    res = res % (1000000007);
-    cout << res << endl;
-}
+*/
