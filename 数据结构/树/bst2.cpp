@@ -44,6 +44,7 @@ public:
     }
 };
 
+// 插入元素
 void buildBSTree(bstTree*& root){
     cout << "输入一个数组构建BST，以空格分隔，\\n结束" << endl;
     dataType dtmp;
@@ -74,6 +75,16 @@ void buildBSTree(bstTree*& root){
         }
         if(cin.get() == '\n') break;
     }
+}
+
+// 方法2：插入元素
+bstTree* insertToBST(bstTree* root, int val){
+    if(root == nullptr){
+        root = new bstTree(val);
+    }
+    if(val < root->getVal()) root->setLeft = insertToBST(root->getLeft(), val);
+    if(val > root->getVal()) root->setRight = insertToBST(root->getRight(), val);
+    return root;
 }
 
 // 中序遍历

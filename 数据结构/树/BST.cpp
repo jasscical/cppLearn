@@ -5,6 +5,7 @@ using namespace std;
 
 class BSTreeNode
 {
+private:
 	DataType data;
 	BSTreeNode* left;
 	BSTreeNode* right;
@@ -24,7 +25,7 @@ public:
 	{
 		data = d;
 	}
-    
+
 	BSTreeNode* GetLeft()
 	{
 		return left;
