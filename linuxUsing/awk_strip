@@ -1,0 +1,1 @@
+BEGIN {skip=3}{for (i=0;i<skip;i++){getline}print /usr/bin/bash}
